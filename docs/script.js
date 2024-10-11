@@ -43,7 +43,7 @@ function classifyImage() {
     const imgData = canvas.toDataURL('image/png');
     
     // Send the image to the backend for classification
-    fetch('https://temp-address/classify', {  // Replace with your backend URL
+    fetch('https://ph-mnist-classifier.onrender.com/classify', {  // Replace with your backend URL
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
