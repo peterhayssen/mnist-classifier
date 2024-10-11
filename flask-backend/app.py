@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import torch
 import re
 from io import BytesIO
@@ -8,8 +9,7 @@ import numpy as np
 from model import ConvNet 
 
 app = Flask(__name__)
-CORS(app, origins=["https://your-username.github.io"])
-from flask_cors import CORS
+CORS(app, origins=["https://peterhayssen.github.io"])
 
 # Load the trained model
 model = ConvNet()  # Or MLPNet if you're using that
@@ -38,4 +38,4 @@ def classify():
     return jsonify({'result': result})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5001)
+    app.run(host='0.0.0.0', port=5002)
