@@ -8,10 +8,12 @@ import numpy as np
 from model import ConvNet 
 
 app = Flask(__name__)
+CORS(app, origins=["https://your-username.github.io"])
+from flask_cors import CORS
 
 # Load the trained model
 model = ConvNet()  # Or MLPNet if you're using that
-model.load_state_dict(torch.load('models/cnn_model.pth'))
+model.load_state_dict(torch.load('flask-backend/models/cnn_model.pth', weights_only=True))
 model.eval()
 
 def preprocess_image(img_data):
@@ -36,4 +38,4 @@ def classify():
     return jsonify({'result': result})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5001)

@@ -43,7 +43,7 @@ function classifyImage() {
     const imgData = canvas.toDataURL('image/png');
     
     // Send the image to the backend for classification
-    fetch('https://your-backend-url/classify', {  // Replace with your backend URL
+    fetch('https://192.168.1.220:5002/classify', {  // Replace with your backend URL
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
